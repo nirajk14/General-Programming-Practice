@@ -5,16 +5,23 @@ def threeSum(nums):
     j=0
     k=0
     op=[]
+    nums_negative=[]
+    nums_positive=[]
+    if 0 in nums:
+        has_zero=True
+    else:
+        has_zero=False
+    nums.sort()
     while i<a:
-        j=i+1
-        while j<a:
-            k=j+1
-            while k<a:
-                if nums[i]+nums[j]+nums[k]==0 and ([nums[i],nums[j],nums[k]] not in op and [nums[j],nums[k],nums[i]] not in op) and ([nums[k],nums[i],nums[j]] not in op) and ([nums[k],nums[j],nums[i]] not in op) and ([nums[i],nums[k],nums[j]] not in op) and (([nums[j],nums[i],nums[k]] not in op)):
-                    op.append([nums[i],nums[j],nums[k]])
-                k=k+1
+        if nums[i]<0:
+            nums_negative.append(nums[i])
             j=j+1
+        elif nums[i]>0:
+            nums_positive.append(nums[i])
+            k=k+1
         i=i+1
+
+    print(nums_negative,nums_positive,has_zero,a)
     return op
 
-#threeSum([-1,0,1,2,-1,-4])
+threeSum([-1,0,1,2,-1,-4])
