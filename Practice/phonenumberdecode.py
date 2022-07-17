@@ -1,11 +1,13 @@
 def letterCombinations(digits):
     Dict={'2':"abc",'3':"def",'4':"ghi",'5':"jkl",'6':"mno",'7':"pqrs",'8':"tuv",'9':"wxyz"}
     no_of_digits=len(digits)
-    result=[]
+    result=['']
     i=0
     print(Dict.get(digits[i]))
-    for i<no_of_digits:
-        result=Combine(result,Dict.get(digits[i]))
+    while i<no_of_digits:
+        result=Combine2(result,Dict.get(digits[i]))
+        i+=1
+    return result
 
 
 def Combine(list1,str1):
@@ -13,15 +15,26 @@ def Combine(list1,str1):
     if str1=="":
         return list1
     else:
-        if list1!=[]:
-            a=len(list1)
-            i=0
-            for i<a:
-                list1=list1.append(list1[i]+str1[0])
+        str1=str1[1:]
+        return Combine(list1,str1)
+
+def Combine2(list1,str2):
+    list2=[]
+    i=0
+    while i<len(list1):
+        j=0
+        while j<len(str2):
+            list2.append(list1[i]+str2[j])
+            j+=1
+        i+=1
+    return list2
+
+        
 
 
 
 
 
-letterCombinations("23")
+#print(Combine2([''],"def"))
+print(letterCombinations("4355"))
 
