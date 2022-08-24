@@ -1,2 +1,2 @@
 # General-Programming-Practice
-Just learning some Advanced Programming Concepts
+Just learning some Basic to Advanced Programming Concepts in various languages
